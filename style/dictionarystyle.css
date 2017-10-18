@@ -1,16 +1,22 @@
 .wrapper{
+	background:#eee;
+	padding:10px;
 	width:600px;
 	float:left;
 }
+.nav{
+	height:50px;
+	background:lightgreen;
+}
 .khaeji{
 	background:lightblue;
-	width:290px;
+	width:275px;
 	padding:10px;
 	float:left;
 }
 .english{
 	background:lightblue;
-	width:290px;
+	width:275px;
 	padding:10px;
 	float:right;
 }
