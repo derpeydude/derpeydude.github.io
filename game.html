@@ -1,8 +1,20 @@
+<script>
+	var cookiesss = 0;
+</script>
 <html>
 <head>
-	<title>game</title>
+	<title>cookie clicker clone</title>
 </head>
 <body>
-	
+	<a href=# onclick="add()"><img src="style/cookieimg.jpg"></a>
+	<br><br>
+	cookies: 
+	<input type="text" id="text" disabled style=text-align:center>
+	<script>
+		function add(){
+			cookiesss += 1
+			document.getElementById('text').value = cookiesss;
+		}
+	</script>
 </body>
 </html>
