@@ -1,0 +1,43 @@
+<script>
+	var muffinsss = 0;
+</script>
+<html>
+<head>
+	<title>muffin button</title>
+	<link rel="stylesheet" href="style/muffinbutton.css" type="text/css" />
+</head>
+<body>
+	<div class="muffins">
+		<input class="muffinnum" type="text" id="text" style=text-align:center><br><br>
+	</div>
+	<script>document.getElementById('text').value = muffinsss + " muffins";</script>
+	<div class="muffin">
+		<a href=# onclick="add()"><img src="style/muffinimg.jpg"></a>
+	</div>
+
+	upgrades <br><br><br>
+
+	<button><a href="#" class="savebutton" onclick="save()">Save</a></button>
+	<button><a href="#" class="savebutton" onclick="load()">Load</a></button>
+	<button><a href="#" class="savebutton" onclick="reset()">Reset</a></button>
+	<button><a href="#" class="savebutton" onclick="save()">Save</a></button>
+	<script>
+		function save(){
+
+		}
+		function load(){
+
+		}
+		function reset(){
+			muffinsss = 0
+			document.getElementById('text').value = muffinsss + " muffins";
+		}
+		function add(){
+			muffinsss += 1
+			document.getElementById('text').value = muffinsss + " muffins";
+		}
+	</script>
+	<br>
+	<a href="main.html">main</a>
+</body>
+</html>
