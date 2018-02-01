@@ -1,5 +1,6 @@
 <script>
 	var muffinsss = 0;
+	var cursors = 0;
 </script>
 <html>
 <head>
@@ -20,20 +21,21 @@
 	<button><a href="#" class="savebutton" onclick="save()">Save</a></button>
 	<button><a href="#" class="savebutton" onclick="load()">Load</a></button>
 	<button><a href="#" class="savebutton" onclick="reset()">Reset</a></button>
-	<button><a href="#" class="savebutton" onclick="save()">Save</a></button>
 	<script>
 		function save(){
-
+			localStorage.setItem("muffinsss",muffinsss);
 		}
 		function load(){
-
+			muffinsss = localStorage.getItem("muffinsss");
+			muffinsss = parseInt(muffinsss);
+			document.getElementById('text').value = muffinsss + " muffins";
 		}
 		function reset(){
-			muffinsss = 0
+			muffinsss = 0;
 			document.getElementById('text').value = muffinsss + " muffins";
 		}
 		function add(){
-			muffinsss += 1
+			muffinsss += 1;
 			document.getElementById('text').value = muffinsss + " muffins";
 		}
 	</script>
