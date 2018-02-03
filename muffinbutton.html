@@ -18,12 +18,11 @@
 	function timer(){
 		if (cursors > 0){
 			muffinsss += cursors;
-			update();
 		}
 		if (gokus > 0) {
 			muffinsss += gokus*2000;
-			update();
 		}
+		update();
 	}
 	setInterval (timer, 1000);
 </script>
