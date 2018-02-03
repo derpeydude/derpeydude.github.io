@@ -1,6 +1,31 @@
 <script>
+	function update(){
+		mps = cursors+(gokus*10)
+		document.getElementById('text').innerHTML = muffinsss + " muffins";
+		document.getElementById('mps').innerHTML = "per second: " + mps;
+		document.getElementById('cursorammount').innerHTML = "cursors: " + cursors;
+		document.getElementById('cursorcost').innerHTML = "cost: " + cursorcost;
+		document.getElementById('gokuammount').innerHTML = "gokus: " + gokus;
+		document.getElementById('gokucost').innerHTML = "cost: " + gokucost;
+	}
 	var muffinsss = 0;
 	var cursors = 0;
+	var cursorcost = 20;
+	var gokus = 0;
+	var gokucost = 50;
+	var mps = 0;
+
+	function timer(){
+		if (cursors > 0){
+			muffinsss += cursors;
+			update();
+		}
+		if (gokus > 0) {
+			muffinsss += gokus*10;
+			update();
+		}
+	}
+	setInterval (timer, 1000);
 </script>
 <html>
 <head>
@@ -9,34 +34,57 @@
 </head>
 <body>
 	<div class="muffins">
-		<input class="muffinnum" type="text" id="text" style=text-align:center><br><br>
+		<p class="muffinnum" id="text" disabled style=text-align:center>
+		<p class="muffinpersec" id="mps" disabled style=text-align:center>
 	</div>
-	<script>document.getElementById('text').value = muffinsss + " muffins";</script>
+	<br>
+	<script>update();</script>
 	<div class="muffin">
 		<a href=# onclick="add()"><img src="style/muffinimg.jpg"></a>
 	</div>
 
-	upgrades <br><br><br>
+	<button><a href="#" onClick="buyCursor()">
+		<img src="style/cursor.png" height="50" width="50"></a>
+	</button>
+		<p id="cursorammount">cursors: 0</p>
+		<p id="cursorcost">cost: 20</p>
+	<button><a href="#" onClick="buyGoku()">
+		<img src="style/goku.jpg" height="50" width="50"></a>
+	</button>
+	<p id="gokuammount">gokus: 0</p>
+	<p id="gokucost">cost: 50</p>
+	<br><br>
 
 	<button><a href="#" class="savebutton" onclick="save()">Save</a></button>
-	<button><a href="#" class="savebutton" onclick="load()">Load</a></button>
-	<button><a href="#" class="savebutton" onclick="reset()">Reset</a></button>
+	<button><a href="#" class="loadbutton" onclick="load()">Load</a></button>
 	<script>
+		function buyCursor(){
+			if (muffinsss >= cursorcost) {
+				muffinsss -= cursorcost;
+				cursors += 1;
+				cursorcost *= 2;
+				update();
+			}
+		}
+		function buyGoku(){
+			if (muffinsss >= gokucost) {
+				muffinsss -= gokucost;
+				gokus += 1;
+				gokucost *= 10;
+				update();
+			}
+		}
 		function save(){
 			localStorage.setItem("muffinsss",muffinsss);
 		}
 		function load(){
 			muffinsss = localStorage.getItem("muffinsss");
 			muffinsss = parseInt(muffinsss);
-			document.getElementById('text').value = muffinsss + " muffins";
-		}
-		function reset(){
-			muffinsss = 0;
-			document.getElementById('text').value = muffinsss + " muffins";
+			update();
 		}
 		function add(){
 			muffinsss += 1;
-			document.getElementById('text').value = muffinsss + " muffins";
+			update();
 		}
 	</script>
 	<br>
