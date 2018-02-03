@@ -12,7 +12,7 @@
 	var cursors = 0;
 	var cursorcost = 20;
 	var gokus = 0;
-	var gokucost = 50;
+	var gokucost = 100000;
 	var mps = 0;
 
 	function timer(){
@@ -21,7 +21,7 @@
 			update();
 		}
 		if (gokus > 0) {
-			muffinsss += gokus*10;
+			muffinsss += gokus*2000;
 			update();
 		}
 	}
@@ -46,13 +46,18 @@
 	<button><a href="#" onClick="buyCursor()">
 		<img src="style/cursor.png" height="50" width="50"></a>
 	</button>
+	<div class="cursor">
 		<p id="cursorammount">cursors: 0</p>
 		<p id="cursorcost">cost: 20</p>
+	</div>
+	<br>
 	<button><a href="#" onClick="buyGoku()">
 		<img src="style/goku.jpg" height="50" width="50"></a>
 	</button>
-	<p id="gokuammount">gokus: 0</p>
-	<p id="gokucost">cost: 50</p>
+	<div class="goku">
+		<p id="gokuammount">gokus: 0</p>
+		<p id="gokucost">cost: 100000</p>
+	</div>
 	<br><br>
 
 	<button><a href="#" class="savebutton" onclick="save()">Save</a></button>
