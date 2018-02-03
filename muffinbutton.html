@@ -76,10 +76,22 @@
 		}
 		function save(){
 			localStorage.setItem("muffinsss",muffinsss);
+			localStorage.setItem("cursors",cursors);
+			localStorage.setItem("gokus",gokus);
+			localStorage.setItem("cursorcost",cursorcost);
+			localStorage.setItem("gokucost",gokucost);
 		}
 		function load(){
 			muffinsss = localStorage.getItem("muffinsss");
 			muffinsss = parseInt(muffinsss);
+			cursors = localStorage.getItem("cursors");
+			cursors = parseInt(cursors);
+			gokus = localStorage.getItem("gokus");
+			gokus = parseInt(gokus);
+			cursorcost = localStorage.getItem("cursorcost");
+			cursorcost = parseInt(cursorcost);
+			gokucost = localStorage.getItem("gokucost");
+			gokucost = parseInt(gokucost);
 			update();
 		}
 		function add(){
