@@ -1,30 +1,30 @@
 <script>
 	function update(){
-		mps = cursors+(gokus*10)
-		document.getElementById('text').innerHTML = muffinsss + " muffins";
-		document.getElementById('mps').innerHTML = "per second: " + mps;
-		document.getElementById('cursorammount').innerHTML = "cursors: " + cursors;
-		document.getElementById('cursorcost').innerHTML = "cost: " + cursorcost;
+		mps = (cursors*10)+(gokus*100)
+		document.getElementById('muffinCountText').innerHTML = muffinCount + " muffins";
+		document.getElementById('muffinsPerSecond').innerHTML = "per second: " + mps;
+		document.getElementById('presserAmount').innerHTML = "pressers: " + cursors;
+		document.getElementById('presserCost').innerHTML = "cost: " + cursorcost;
 		document.getElementById('gokuammount').innerHTML = "gokus: " + gokus;
 		document.getElementById('gokucost').innerHTML = "cost: " + gokucost;
 	}
-	var muffinsss = 0;
+	var muffinCount = 0;
 	var cursors = 0;
-	var cursorcost = 20;
+	var cursorcost = 200;
 	var gokus = 0;
-	var gokucost = 100000;
+	var gokucost = 10000;
 	var mps = 0;
 
 	function timer(){
 		if (cursors > 0){
-			muffinsss += cursors;
+			muffinCount += cursors;
 		}
 		if (gokus > 0) {
-			muffinsss += gokus*2000;
+			muffinCount += gokus*10;
 		}
 		update();
 	}
-	setInterval (timer, 1000);
+	setInterval (timer, 100);
 </script>
 <html>
 <head>
@@ -32,30 +32,31 @@
 	<link rel="stylesheet" href="style/muffinbutton.css" type="text/css" />
 </head>
 <body>
-	<div class="muffins">
-		<p class="muffinnum" id="text" disabled style=text-align:center>
-		<p class="muffinpersec" id="mps" disabled style=text-align:center>
+	<div class="muffin_text_display">
+		<p class="muffinnum" id="muffinCountText" disabled style=text-align:center>
+		<p class="muffinpersec" id="muffinsPerSecond" disabled style=text-align:center>
 	</div>
 	<br>
 	<script>update();</script>
-	<div class="muffin">
-		<a href=# onclick="add()"><img src="style/muffinimg.jpg"></a>
-	</div>
-
+	<div class="upgrades">
 	<button><a href="#" onClick="buyCursor()">
-		<img src="style/cursor.png" height="50" width="50"></a>
+		<img src="style/presser.jpg" height="70" width="70"></a>
 	</button>
 	<div class="cursor">
-		<p id="cursorammount">cursors: 0</p>
-		<p id="cursorcost">cost: 20</p>
+		<p id="presserAmount">presser: 0</p>
+		<p id="presserCost">cost: 200</p>
 	</div>
 	<br>
 	<button><a href="#" onClick="buyGoku()">
-		<img src="style/goku.jpg" height="50" width="50"></a>
+		<img src="style/goku.png" height="70" width="70"></a>
 	</button>
 	<div class="goku">
 		<p id="gokuammount">gokus: 0</p>
-		<p id="gokucost">cost: 100000</p>
+		<p id="gokucost">cost: 10000</p>
+	</div>
+	</div>
+	<div class="muffin">
+		<a href=# onclick="add()"><img src="style/muffinimg.jpg" height="400" width="450"></a>
 	</div>
 	<br><br>
 
@@ -63,31 +64,31 @@
 	<button><a href="#" class="loadbutton" onclick="load()">Load</a></button>
 	<script>
 		function buyCursor(){
-			if (muffinsss >= cursorcost) {
-				muffinsss -= cursorcost;
+			if (muffinCount >= cursorcost) {
+				muffinCount -= cursorcost;
 				cursors += 1;
 				cursorcost *= 2;
 				update();
 			}
 		}
 		function buyGoku(){
-			if (muffinsss >= gokucost) {
-				muffinsss -= gokucost;
+			if (muffinCount >= gokucost) {
+				muffinCount -= gokucost;
 				gokus += 1;
 				gokucost *= 10;
 				update();
 			}
 		}
 		function save(){
-			localStorage.setItem("muffinsss",muffinsss);
+			localStorage.setItem("muffinCount",muffinCount);
 			localStorage.setItem("cursors",cursors);
 			localStorage.setItem("gokus",gokus);
 			localStorage.setItem("cursorcost",cursorcost);
 			localStorage.setItem("gokucost",gokucost);
 		}
 		function load(){
-			muffinsss = localStorage.getItem("muffinsss");
-			muffinsss = parseInt(muffinsss);
+			muffinCount = localStorage.getItem("muffinCount");
+			muffinCount = parseInt(muffinCount);
 			cursors = localStorage.getItem("cursors");
 			cursors = parseInt(cursors);
 			gokus = localStorage.getItem("gokus");
@@ -99,11 +100,11 @@
 			update();
 		}
 		function add(){
-			muffinsss += 1;
+			muffinCount += 10;
 			update();
 		}
 	</script>
-	<br>
-	<a href="main.html">main</a>
+	<br><br>
+	<a href="index.html">return to the beginning</a>
 </body>
 </html>

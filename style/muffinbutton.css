@@ -1,4 +1,4 @@
-.muffins {
+.muffin_text_display {
 	width:81%;
 	padding:2px;
 	margin:5px 10px 0;
@@ -8,17 +8,15 @@
 	font-size:20px;
 	height:80px;
 }
-.muffins .muffinpersec {
+.muffin_text_display .muffinpersec {
 	font-size:14px;
 }
 
 .muffin {
-	float:left;
-}
-
-.cursor{
-
-}
-.goku{
 	
+}
+
+.upgrades{
+	float:left;
+	padding:20px
 }
