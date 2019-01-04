@@ -1,0 +1,20 @@
+
+.muffinDisplay {
+	width:81%;
+	padding:2px;
+	margin:5px 10px 0;
+	background:#1ddced;
+	border-radius:10px;
+	color:#fff;
+	font-size:20px;
+	height:80px;
+}
+
+.muffinDisplay .muffinPerSecondDisplay {
+	font-size:14px;
+}
+
+.upgrades{
+	float:left;
+	padding:20px
+}
