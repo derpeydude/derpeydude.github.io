@@ -6,7 +6,7 @@ var muffin = {
 };
 var click = {
 	amount:1,
-	cost:200,
+	cost:100,
 	production:1
 }
 var presser = {
@@ -25,6 +25,8 @@ function update () {
 	muffin.perSecond = (presser.amount) + (goku.production*goku.amount);
 	document.getElementById("muffinAmountDisplay").innerHTML = muffin.amount + " muffins exist";
 	document.getElementById("muffinPerSecondDisplay").innerHTML =  "per sec: " + muffin.perSecond;
+	document.getElementById("clickAmount").innerHTML = "click: " + click.amount;
+	document.getElementById("clickCost").innerHTML = "cost: " + click.cost;
 	document.getElementById("presserAmount").innerHTML = "pressers: " + presser.amount;
 	document.getElementById("presserCost").innerHTML = "cost: " + presser.cost;
 	document.getElementById("gokuAmount").innerHTML = "gokus: " + goku.amount;
@@ -34,7 +36,7 @@ setInterval (update, 100);
 
 //increase muffin functions
 function muffinClick () {
-	muffin.amount += click.production;
+	muffin.amount += click.amount;
 }
 function presserClick () {
 	muffin.amount += presser.amount;
@@ -46,6 +48,18 @@ function gokuClick () {
 setInterval (gokuClick, 100)
 
 //functions for upgrades
+function buyClickUpgrade () {
+	if (muffin.amount >= click.cost) {
+		muffin.amount -= click.cost;
+		click.amount += 1;
+		if (click.amount <= 10) {
+			click.cost += 100
+		}else {
+			click.cost += 100
+		}
+	}
+}
+
 function buyPresser() {
 	if (muffin.amount >= presser.cost){
 		muffin.amount -= presser.cost;
@@ -54,14 +68,14 @@ function buyPresser() {
 			presser.cost += 3;
 		}else if (presser.amount <= 20){
 			presser.cost += 12;
+		}else if (presser.amount <= 30){
+			presser.cost += 80;
 		}else if (presser.amount <= 100){
 			presser.cost += 100;
-		}else if (presser.amount < 1000){
+		}else if (presser.amount <= 1000){
 			presser.cost += 1000;
-		}else if (presser.amount < 10000){
-			presser.cost += 10000;
 		}else {
-			presser.cost += 1000000;
+			presser.cost += 10000;
 		}
 	}
 }
@@ -77,6 +91,9 @@ function buyGoku() {
 			}
 	}
 }
+
+//save and load functions
+
 
 //end
 
