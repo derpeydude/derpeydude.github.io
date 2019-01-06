@@ -5,14 +5,34 @@
 	<link rel="stylesheet" type="text/css" href="index.css">
 </head>
 <body>
+	<!--javascript-->
 	<script type="text/javascript" src="index.js"></script>
 	
-	
-	
+	<!--display of numbers of muffins-->
 	<div class="muffinDisplay">
 		<p class="muffinAmountDisplay" id="muffinAmountDisplay" style=text-align:center>0 muffins exist</p>
 		<p class="muffinPerSecondDisplay" id="muffinPerSecondDisplay" style=text-align:center>per sec: 0</p>
 	</div>
+	
+	<!--upgrades to get more muffins-->
+	<div class="upgrades">
+		<div class="presserUpgrade">
+			<button><a href="#" onClick="buyPresser()">
+			<img src="style/presser.jpg" height="70" width="70"></a>
+			</button>
+			<p id="presserAmount">pressers: 0</p>
+			<p id="presserCost">cost: 50</p>
+		</div>
+		<div class="gokuUpgrade">
+			<button><a href="#" onClick="buyGoku()">
+			<img src="style/goku.png" height="70" width="70"></a>
+			</button>
+			<p id="gokuAmount">gokus: 0</p>
+			<p id="gokuCost">cost: 800</p>
+		</div>
+	</div>
+	
+	<!--image of a muffin to click on-->
 	<div class="muffinImage">
 		<a href=# onclick="muffinClick()"><img src="style/muffin.jpg" height="400" width="450"></a>
 	</div>

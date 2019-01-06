@@ -1,6 +1,10 @@
 
+body
+{
+	font-family:Courier new,monospace;
+}
 .muffinDisplay {
-	width:81%;
+	width:98%;
 	padding:2px;
 	margin:5px 10px 0;
 	background:#1ddced;
@@ -18,3 +22,4 @@
 	float:left;
 	padding:20px
 }
+
