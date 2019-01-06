@@ -72,7 +72,9 @@ function buyGoku() {
 		goku.amount += 1;
 		if (goku.amount <= 10){
 			goku.cost += 120;
-		}
+		}else {
+			goku.cost += 1000;
+			}
 	}
 }
 
