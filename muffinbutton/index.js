@@ -34,6 +34,67 @@ function update () {
 }
 setInterval (update, 100);
 
+//save and load functions
+function save () {
+	localStorage.setItem("muffinamount", muffin.amount);
+	localStorage.setItem("muffinpersecond", muffin.perSecond);
+	localStorage.setItem("clickamount", click.amount);
+	localStorage.setItem("clickcost", click.cost);
+	localStorage.setItem("clickproduction", click.production);
+	localStorage.setItem("presseramount", presser.amount);
+	localStorage.setItem("pressercost", presser.cost);
+	localStorage.setItem("presserproduction", presser.production);
+	localStorage.setItem("gokuamount", goku.amount);
+	localStorage.setItem("gokucost", goku.cost);
+	localStorage.setItem("gokuproduction", goku.production);
+}
+function load () {
+	if (localStorage.muffinamount) {
+		muffin.amount = localStorage.getItem("muffinamount");
+		muffin.amount = parseInt(muffin.amount);
+	}
+	if (localStorage.muffinpersecond) {
+		muffin.perSecond = localStorage.getItem("muffinpersecond");
+		muffin.perSecond = parseInt(muffin.perSecond);
+	}
+	if (localStorage.clickamount) {
+		click.amount = localStorage.getItem("clickamount");
+		click.amount = parseInt(click.amount);
+	}
+	if (localStorage.clickcost) {
+		click.cost = localStorage.getItem("clickcost");
+		click.cost = parseInt(click.cost);
+	}
+	if (localStorage.clickproduction) {
+		click.production = localStorage.getItem("clickproduction");
+		click.production = parseInt(click.production);
+	}
+	if (localStorage.presseramount) {
+		presser.amount = localStorage.getItem("presseramount");
+		presser.amount = parseInt(presser.amount);
+	}
+	if (localStorage.pressercost) {
+		presser.cost = localStorage.getItem("pressercost");
+		presser.cost = parseInt(presser.cost);
+	}
+	if (localStorage.presserproduction) {
+		presser.production = localStorage.getItem("presserproduction");
+		presser.production = parseInt(presser.production);
+	}
+	if (localStorage.gokuamount) {
+		goku.amount = localStorage.getItem("gokuamount");
+		goku.amount = parseInt(goku.amount)
+	}
+	if (localStorage.gokucost) {
+		goku.cost = localStorage.getItem("gokucost");
+		goku.cost = parseInt(goku.cost);
+	}
+	if (localStorage.gokuproduction){
+		goku.production = localStorage.getItem("gokuproduction");
+		goku.production = parseInt(goku.production);
+	}
+}
+
 //increase muffin functions
 function muffinClick () {
 	muffin.amount += click.amount;
@@ -91,9 +152,6 @@ function buyGoku() {
 			}
 	}
 }
-
-//save and load functions
-
 
 //end
 
